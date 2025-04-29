@@ -4,295 +4,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./logo.ico" type="image/x-icon">
     <title>Portafolio de Erick García</title>
+    <link rel="icon" href="./logo.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Nuevo enlace de FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Trebuchet MS', sans-serif;
-            background-color: #212529;
-            color: white;
-            padding-top: 56px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding-top: 70px;
         }
 
         .navbar {
-            margin-bottom: 0px;
-            background-color: black;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease-in-out;
+            background-color: transparent;
+            transition: background-color 0.5s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: #000000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .navbar-brand,
         .nav-link {
-            color: #fff !important;
-            transition: all 0.3s ease-in-out;
+            color: white !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: #ffeb3b !important;
+            color: #ffcc00 !important;
         }
 
         .jumbotron {
-            background-image: url('gifbg.gif');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('gifbg.gif') center center/cover no-repeat;
             position: relative;
-            color: #fff;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             border-radius: 0;
-            padding: 5rem 2rem;
-            z-index: 1;
-            transition: all 0.3s ease-in-out;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            color: white;
         }
 
         .jumbotron::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            /* Filtro gris oscuro con transparencia */
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+
+        .jumbotron h1,
+        .jumbotron p {
+            z-index: 1;
+            position: relative;
         }
 
         .jumbotron h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-        }
-
-        .jumbotron a {
-            color: white;
-            margin: 0 10px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .jumbotron a:hover {
-            color: #ffeb3b;
-        }
-
-        .jumbotron p {
-            font-size: 1.25rem;
-            font-weight: 300;
         }
 
         .section-title {
-            margin-top: 60px;
-            margin-bottom: 30px;
             text-align: center;
-            color: #007bff;
             font-size: 2.5rem;
+            margin-bottom: 40px;
             font-weight: 700;
+            color: #ffcc00;
         }
 
-        .card {
-            background-color: #212529;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card:active {
-            transform: scale(0.95);
-        }
-
-        .card-title {
-            color: #007bff;
-            font-weight: 700;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            border-radius: 25px;
-            padding: 10px 20px;
-            font-weight: 700;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .btn-primary:hover {
-            background-color: #ffeb3b;
-            border-color: #ffeb3b;
-            color: #000;
-        }
-
-        .btn-primary:active {
-            transform: scale(0.95);
-        }
-
-        footer {
-            background-color: black;
-            color: #fff;
-            padding: 20px 0;
-            transition: all 0.3s ease-in-out;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.7);
-        }
-
-        footer a {
-            color: #fff;
-            margin: 0 10px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        footer a:hover {
-            color: #ffeb3b;
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
         }
 
         .skill-icon {
-            color: #007bff;
-            margin-bottom: 10px;
-            transition: all 0.3s ease-in-out;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            transition: transform 0.3s ease;
         }
 
         .skill-icon:hover {
-            color: #ffeb3b;
-            transform: rotate(20deg);
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            color: #ffcc00;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            border: none;
+            color: black;
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        footer {
+            margin-top: 60px;
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer a {
+            color: #ffffff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffcc00;
+        }
+
+        footer i {
+            font-size: 1.8rem;
+            margin: 0 10px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        footer i:hover {
+            color: #ffcc00;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Mi Portafolio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">Sobre Mí</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Habilidades</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Proyectos</a>
-                </li>
-            </ul>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Erick García</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="jumbotron text-center">
-        <h1 class="display-4">¡Hola! Soy Erick García</h1>
-        <p class="lead">Programador con experiencia en Javascript, PHP, MySQL, Laravel, Python y WordPress</p>
-        <a href="https://github.com/Erick21Garcia" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-        <a href="https://www.linkedin.com/in/erick-fernando-garc%C3%ADa-guerrero-494253237/" target="_blank"><i
-                class="fab fa-linkedin fa-2x"></i></a>
-    </div>
-
-    <div id="about" class="container">
-        <h2 class="section-title">Sobre Mí</h2>
-        <p>Soy un profesional apasionado y habilidoso en el desarrollo de soluciones tecnológicas, con experiencia en programación web, diseño gráfico y administración de sistemas. Me destaco por mi capacidad para aprender y adaptarme rápidamente a nuevas tecnologías y entornos de trabajo. Mi objetivo es seguir creciendo como profesional en el ámbito de la tecnología, contribuir al éxito de la empresa y alcanzar mis metas a corto y largo plazo. Estoy comprometido con la excelencia en el desempeño profesional y la entrega de resultados de alta calidad.</p>
-    </div>
-
-    <div id="skills" class="container">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <i class="fas fa-code fa-3x skill-icon"></i>
-                <h4>Javascript</h4>
-                <p>Habilidad en programación orientada a objetos y desarrollo de aplicaciones web.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fab fa-php fa-3x skill-icon"></i>
-                <h4>PHP</h4>
-                <p>Desarrollo de aplicaciones web dinámicas y gestión de servidores.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fas fa-database fa-3x skill-icon"></i>
-                <h4>MySQL</h4>
-                <p>Experiencia en diseño y administración de bases de datos relacionales.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fas fa-layer-group fa-3x skill-icon"></i>
-                <h4>Laravel</h4>
-                <p>Desarrollo de aplicaciones web utilizando el framework Laravel y Bootstrap para el diseño.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fab fa-python fa-3x skill-icon"></i>
-                <h4>Python</h4>
-                <p>Desarrollo de aplicaciones y automatización de tareas utilizando Python.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fab fa-wordpress fa-3x skill-icon"></i>
-                <h4>WordPress</h4>
-                <p>Creación y gestión de sitios web dinámicos con WordPress, incluyendo desarrollo de temas y plugins
-                    personalizados.</p>
-            </div>
+    <div class="jumbotron">
+        <div>
+            <h1>¡Hola! Soy Erick García</h1>
+            <p>Programador en Javascript, PHP, MySQL, Laravel, Python y WordPress</p>
         </div>
     </div>
 
-    <div id="projects" class="container">
+    <section id="about" class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p>Soy un apasionado del desarrollo tecnológico, especializado en programación web, diseño y sistemas. Me
+            esfuerzo por ofrecer soluciones innovadoras, aprender constantemente y alcanzar la excelencia profesional.
+        </p>
+    </section>
+
+    <section id="skills" class="container mt-5">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-code skill-icon"></i>
+                <h5>Javascript</h5>
+            </div>
+            <div class="col-md-4">
+                <i class="fab fa-php skill-icon"></i>
+                <h5>PHP</h5>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-database skill-icon"></i>
+                <h5>MySQL</h5>
+            </div>
+            <div class="col-md-4 mt-4">
+                <i class="fas fa-layer-group skill-icon"></i>
+                <h5>Laravel</h5>
+            </div>
+            <div class="col-md-4 mt-4">
+                <i class="fab fa-python skill-icon"></i>
+                <h5>Python</h5>
+            </div>
+            <div class="col-md-4 mt-4">
+                <i class="fab fa-wordpress skill-icon"></i>
+                <h5>WordPress</h5>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container mt-5">
         <h2 class="section-title">Proyectos</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="./gif2.gif" class="card-img-top" alt="Proyecto 1">
                     <div class="card-body">
-                        <h5 class="card-title">E-commerce - Tienda de Tecnologia</h5>
-                        <p class="card-text">Este proyecto es una plataforma web desarrollada en PHP para la gestión
-                            completa de un sistema de compras en línea. Permite a los usuarios adquirir productos de
-                            manera eficiente y segura, mientras que los administradores pueden gestionar inventarios,
-                            pedidos y usuarios.</p>
-                        <a href="https://github.com/Erick21Garcia/E-commerce-Tienda-de-Tecnologia"
-                            class="btn btn-primary" target="_blank">Ver Proyecto</a>
+                        <h5 class="card-title">E-commerce - Tienda de Tecnología</h5>
+                        <p class="card-text">Sistema de compras en línea desarrollado en PHP y MySQL.</p>
+                        <a href="https://github.com/Erick21Garcia/E-commerce-Tienda-de-Tecnologia" target="_blank"
+                            class="btn btn-primary btn-block">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="./gif1.gif" class="card-img-top" alt="Proyecto 2">
                     <div class="card-body">
-                        <h5 class="card-title">Sistema de Gestión Académica - "Universidad ICA"</h5>
-                        <p class="card-text">Este proyecto es una aplicación web en Laravel para gestionar información
-                            académica de estudiantes, materias y calificaciones. Permite registrar, consultar y generar
-                            reportes de manera eficiente y segura, optimizando la administración dentro de instituciones
-                            educativas.</p>
-                        <a href="https://github.com/Erick21Garcia/Sistema-de-Gestion-Academica" class="btn btn-primary"
-                            target="_blank">Ver Proyecto</a>
+                        <h5 class="card-title">Sistema de Gestión Académica</h5>
+                        <p class="card-text">Aplicación web en Laravel para administrar información académica.</p>
+                        <a href="https://github.com/Erick21Garcia/Sistema-de-Gestion-Academica" target="_blank"
+                            class="btn btn-primary btn-block">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card">
                     <img src="./gif3.gif" class="card-img-top" alt="Proyecto 3">
                     <div class="card-body">
                         <h5 class="card-title">To-do App</h5>
-                        <p class="card-text">Aquí tenemos una aplicación de lista de tareas (to-do) desarrollada utilizando React para el
-                            frontend y Flask para el backend. La aplicación permite a los usuarios agregar, visualizar y
-                            eliminar tareas de manera sencilla. Utiliza Bootstrap para un diseño responsivo y atractivo.
-                        </p>
-                        <a href="https://github.com/Erick21Garcia/React-flask-todo-app" class="btn btn-primary"
-                            target="_blank">Ver Proyecto</a>
+                        <p class="card-text">Aplicación de lista de tareas usando React y Flask.</p>
+                        <a href="https://github.com/Erick21Garcia/React-flask-todo-app" target="_blank"
+                            class="btn btn-primary btn-block">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row justify-content-center">
+            <!-- Proyecto 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./gif4.gif" class="card-img-top" alt="Proyecto 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Sistema Web de Bienestar Universitario</h5>
+                        <p class="card-text">Sistema web de bienestar universitario para la gestión documental del área
+                            de medicina integrando servicios AWS.</p>
+                        <a href="https://github.com/Erick21Garcia/Sistema-Inventario" target="_blank"
+                            class="btn btn-primary btn-block">Ver Proyecto</a>
+                    </div>
+                </div>
+            </div>
 
-    <footer class="text-center">
+            <!-- Proyecto 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./img1.jpg" class="card-img-top" alt="Proyecto 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Python - IoT</h5>
+                        <p class="card-text">Este proyecto tiene como objetivo explorar el uso del protocolo MQTT en
+                            soluciones de Internet de las Cosas (IoT).
+                        </p>
+                        <a href="https://github.com/Erick21Garcia/Blog-Personal" target="_blank"
+                            class="btn btn-primary btn-block">Ver Proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <p>© 2024 Erick García | Sígueme en:</p>
-        <a href="https://github.com/Erick21Garcia" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+        <a href="https://github.com/Erick21Garcia" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/erick-fernando-garc%C3%ADa-guerrero-494253237/" target="_blank"><i
-                class="fab fa-linkedin fa-2x"></i></a>
+                class="fab fa-linkedin"></i></a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+        });
+    </script>
 </body>
 
 </html>
