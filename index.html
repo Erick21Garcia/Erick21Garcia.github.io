@@ -2,314 +2,432 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio de Erick García</title>
-    <link rel="icon" href="./logo.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Nuevo enlace de FontAwesome -->
+    <link rel="icon" href="./logo.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ["Poppins", "sans-serif"],
+                    },
+                    colors: {
+                        dark: "#121212",
+                        primary: "#ffcc00",
+                    },
+                },
+            },
+        };
+    </script>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            padding-top: 70px;
-        }
-
-        .navbar {
-            background-color: transparent;
-            transition: background-color 0.5s ease;
-        }
-
-        .navbar.scrolled {
-            background-color: #000000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: white !important;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #ffcc00 !important;
-        }
-
-        .jumbotron {
-            background: url('gifbg.gif') center center/cover no-repeat;
-            position: relative;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-radius: 0;
-            color: white;
-        }
-
-        .jumbotron::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 0;
-        }
-
-        .jumbotron h1,
-        .jumbotron p {
-            z-index: 1;
-            position: relative;
-        }
-
-        .jumbotron h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            font-weight: 700;
-            color: #ffcc00;
-        }
-
-        #about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #ffcc00;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-icon:hover {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .card-title {
-            color: #ffcc00;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background-color: #ffcc00;
-            border: none;
-            color: black;
-            font-weight: 600;
-            border-radius: 25px;
-            padding: 10px 20px;
-        }
-
-        .btn-primary:hover {
-            background-color: #ffc107;
-            color: black;
-        }
-
-        footer {
-            margin-top: 60px;
-            background-color: #000;
-            padding: 20px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer a {
-            color: #ffffff;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #ffcc00;
-        }
-
-        footer i {
-            font-size: 1.8rem;
-            margin: 0 10px;
-            color: #ffffff;
-            transition: color 0.3s ease;
-        }
-
-        footer i:hover {
-            color: #ffcc00;
+            font-family: "Poppins", sans-serif;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-dark text-white">
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Erick García</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
-                </ul>
-            </div>
+    <nav class="fixed w-full bg-black bg-opacity-60 backdrop-blur-md border-b border-white/10 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-white font-bold text-lg">Erick García</a>
+            <ul class="flex gap-6 font-semibold">
+                <li><a href="#about" class="hover:text-primary">Sobre Mí</a></li>
+                <li><a href="#experience" class="hover:text-primary">Experiencia</a></li>
+                <li><a href="#skills" class="hover:text-primary">Habilidades</a></li>
+                <li><a href="#projects" class="hover:text-primary">Proyectos</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="jumbotron">
-        <div>
-            <h1>¡Hola! Soy Erick García</h1>
-            <p>Programador en Javascript, PHP, MySQL, Laravel, Python y WordPress</p>
+    <section class="h-[90vh] flex items-center justify-center bg-cover bg-center relative"
+        style="background-image: url('gifbg.gif');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative text-center px-6 z-10">
+            <h1 class="text-4xl md:text-5xl font-bold">¡Hola! Soy Erick García</h1>
+            <p class="mt-4 text-xl">Ingeniero en Software | Desarrollador Full Stack</p>
         </div>
-    </div>
+    </section>
 
-    <section id="about" class="container">
-        <h2 class="section-title">Sobre Mí</h2>
-        <p>Soy un apasionado del desarrollo tecnológico, especializado en programación web, diseño y sistemas. Me
-            esfuerzo por ofrecer soluciones innovadoras, aprender constantemente y alcanzar la excelencia profesional.
+    <section id="about" class="py-16 px-4 text-center">
+        <h2 class="text-3xl font-bold text-primary mb-6">Sobre Mí</h2>
+        <p class="max-w-3xl mx-auto text-lg leading-relaxed">
+            Soy un profesional apasionado por el desarrollo de soluciones tecnológicas, con experiencia en programación,
+            telecomunicaciones y administración de sistemas. Me adapto fácilmente a nuevas tecnologías y disfruto
+            trabajar en entornos dinámicos, ofreciendo soluciones eficientes y de alta calidad.
         </p>
     </section>
 
-    <section id="skills" class="container mt-5">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <i class="fas fa-code skill-icon"></i>
-                <h5>Javascript</h5>
+    <section id="experience" class="py-16 px-4 bg-[#1e1e1e] text-white">
+        <h2 class="text-3xl font-bold text-primary text-center mb-10">Experiencia Profesional</h2>
+        <div class="max-w-5xl mx-auto space-y-10">
+
+            <!-- ZTE -->
+            <div>
+                <h3 class="text-xl font-semibold text-primary">Practicante en Ingeniería – ZTE Corporation</h3>
+                <p class="text-sm text-gray-400 mb-2">Oct 2024 – Abr 2025 | Quito</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>Colaboración en el diseño del proyecto 5G en Ecuador.</li>
+                    <li>Revisión técnica de TSS presentados por subcontratistas para asegurar cumplimiento.</li>
+                    <li>Elaboración de soluciones para redes 2G, 3G y 4G.</li>
+                    <li>Generación de órdenes de entrega y facturas de compra para gestión de suministros.</li>
+                    <li>Desarrollo de documentos Collaps y fotomontajes para planificación de instalaciones.</li>
+                </ul>
             </div>
-            <div class="col-md-4">
-                <i class="fab fa-php skill-icon"></i>
-                <h5>PHP</h5>
+
+            <!-- SERCOP -->
+            <div>
+                <h3 class="text-xl font-semibold text-primary">Practicante en Desarrollo – SERCOP</h3>
+                <p class="text-sm text-gray-400 mb-2">Abr 2024 – Jun 2024 | Quito</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>Pruebas funcionales en el sistema de catálogos de contratación pública.</li>
+                    <li>Pruebas en el sistema RUP para detección y documentación de errores.</li>
+                    <li>Documentación técnica del sistema SiControl.</li>
+                    <li>Restauración de bases de datos MySQL con Docker y DBeaver.</li>
+                </ul>
             </div>
-            <div class="col-md-4">
-                <i class="fas fa-database skill-icon"></i>
-                <h5>MySQL</h5>
+
+            <!-- INEPE – Asistente Administrativo -->
+            <div>
+                <h3 class="text-xl font-semibold text-primary">Asistente Administrativo – INEPE</h3>
+                <p class="text-sm text-gray-400 mb-2">Abr 2023 – Abr 2024 | Quito</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>Gestión de procesos administrativos con Google Drive y Microsoft Office Suite.</li>
+                    <li>Community Management en redes sociales y correo institucional.</li>
+                    <li>Administración de contenidos en sitios WordPress.</li>
+                    <li>Soporte técnico a usuarios de oficina.</li>
+                </ul>
             </div>
-            <div class="col-md-4 mt-4">
-                <i class="fas fa-layer-group skill-icon"></i>
-                <h5>Laravel</h5>
+
+            <!-- INEPE – Comunicación -->
+            <div>
+                <h3 class="text-xl font-semibold text-primary">Practicante en Comunicación – INEPE</h3>
+                <p class="text-sm text-gray-400 mb-2">Sept 2022 – Dic 2022 | Quito</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>Desarrollo del sitio web institucional en WordPress.</li>
+                    <li>Diseño gráfico para materiales publicitarios institucionales.</li>
+                    <li>Elaboración de documentos internos y material de uso educativo.</li>
+                </ul>
             </div>
-            <div class="col-md-4 mt-4">
-                <i class="fab fa-python skill-icon"></i>
-                <h5>Python</h5>
+
+            <!-- GAD Tambillo -->
+            <div>
+                <h3 class="text-xl font-semibold text-primary">Desarrollador Web – GAD Tambillo</h3>
+                <p class="text-sm text-gray-400 mb-2">May 2022 – Jul 2022 | Quito</p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                    <li>Desarrollo del sitio web oficial del Gobierno Autónomo Descentralizado de Tambillo.</li>
+                    <li>Tecnologías utilizadas: HTML, CSS, JavaScript, PHP y Laravel.</li>
+                    <li>Implementación de funcionalidades dinámicas y diseño responsivo.</li>
+                </ul>
             </div>
-            <div class="col-md-4 mt-4">
-                <i class="fab fa-wordpress skill-icon"></i>
-                <h5>WordPress</h5>
+
+        </div>
+    </section>
+
+
+    <section id="skills" class="py-16 px-4 text-center bg-dark">
+        <h2 class="text-3xl font-bold text-primary mb-10">Habilidades Técnicas</h2>
+        <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-white">
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-code text-4xl text-primary mb-3"></i>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-code text-4xl text-primary mb-3"></i>
+                <p>TypeScript</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fab fa-react text-4xl text-primary mb-3"></i>
+                <p>React</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-code-branch text-4xl text-primary mb-3"></i>
+                <p>Next.js</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-paint-brush text-4xl text-primary mb-3"></i>
+                <p>Tailwind CSS</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fab fa-php text-4xl text-primary mb-3"></i>
+                <p>PHP</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-layer-group text-4xl text-primary mb-3"></i>
+                <p>Laravel</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fab fa-wordpress text-4xl text-primary mb-3"></i>
+                <p>WordPress</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-stream text-4xl text-primary mb-3"></i>
+                <p>RESTful APIs</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-database text-4xl text-primary mb-3"></i>
+                <p>MySQL</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-fire text-4xl text-primary mb-3"></i>
+                <p>Firebase</p>
+            </div>
+
+            <div class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-terminal text-4xl text-primary mb-3"></i>
+                <p>Linux / Docker</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 px-4 bg-[#1e1e1e] text-white">
+        <h2 class="text-3xl font-bold text-primary text-center mb-12">Proyectos</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif2.gif" alt="Proyecto 1" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">E-commerce - Tienda de Tecnología</h3>
+                    <p class="text-sm text-gray-300 mt-2">Sistema de compras en línea desarrollado en PHP y MySQL.</p>
+                    <a href="https://github.com/Erick21Garcia/E-commerce-Tienda-de-Tecnologia" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif1.gif" alt="Proyecto 2" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">Sistema de Gestión Académica</h3>
+                    <p class="text-sm text-gray-300 mt-2">Aplicación web desarrollada en Laravel para administrar
+                        información
+                        académica.</p>
+                    <a href="https://github.com/Erick21Garcia/Sistema-de-Gestion-Academica" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif5.gif" alt="Proyecto 3" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">Plataforma EduMaster</h3>
+                    <p class="text-sm text-gray-300 mt-2">Plataforma educativa desarrollada con Next.js y Firebase
+                        , diseñada para gestionar cursos, inscripciones y el progreso académico.</p>
+                    <a href="https://github.com/Erick21Garcia/Edumaster" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif4.gif" alt="Proyecto 4" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">Sistema Web de Bienestar Universitario</h3>
+                    <p class="text-sm text-gray-300 mt-2">Gestión documental del área médica con integración de
+                        servicios AWS.</p>
+                    <a href="https://github.com/Erick21Garcia/Sistema-Web-Bienestar-Universitario-" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif6.gif" alt="Proyecto 5" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">Biblioteca de Películas</h3>
+                    <p class="text-sm text-gray-300 mt-2">Aplicación web que permite gestionar un catálogo de
+                        películas, utilizando Laravel como backend (API RESTful) y React como frontend (interfaz de
+                        usuario).</p>
+                    <a href="https://github.com/Erick21Garcia/Catalogo-Peliculas" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./gif3.gif" alt="Proyecto 6" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">To-do App</h3>
+                    <p class="text-sm text-gray-300 mt-2">Aplicación de lista de tareas usando React y Flask.</p>
+                    <a href="https://github.com/Erick21Garcia/React-flask-todo-app" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+            <div class="bg-dark rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <img src="./img1.jpg" alt="Proyecto 7" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold text-primary">Python - IoT</h3>
+                    <p class="text-sm text-gray-300 mt-2">Exploración del protocolo MQTT en soluciones de Internet de
+                        las Cosas.</p>
+                    <a href="https://github.com/Erick21Garcia/PythonIoT" target="_blank"
+                        class="inline-block mt-4 bg-primary text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-300 transition">Ver
+                        Proyecto</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="courses" class="py-16 px-4 bg-dark text-white">
+        <h2 class="text-3xl font-bold text-primary text-center mb-10">Cursos y Certificaciones</h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+
+            <!-- Curso 1 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Administrador de Bases de Datos</h3>
+                    <p class="text-sm text-gray-300">Fundación Carlos Slim – 83 horas</p>
+                </div>
+                <i class="fas fa-database text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 2 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Introducción a Big Data</h3>
+                    <p class="text-sm text-gray-300">Fundación Telefónica – 120 horas</p>
+                </div>
+                <i class="fas fa-chart-line text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 3 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Programación con JavaScript</h3>
+                    <p class="text-sm text-gray-300">Fundación Telefónica – 40 horas</p>
+                </div>
+                <i class="fab fa-js text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 4 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Curador de Datos</h3>
+                    <p class="text-sm text-gray-300">Fundación Carlos Slim – 30 horas</p>
+                </div>
+                <i class="fas fa-database text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 5 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Soporte Técnico a Computadoras</h3>
+                    <p class="text-sm text-gray-300">Udemy – 10 horas</p>
+                </div>
+                <i class="fas fa-tools text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 6 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Power BI</h3>
+                    <p class="text-sm text-gray-300">Códigofacilito – 2h 30m</p>
+                </div>
+                <i class="fas fa-chart-bar text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 7 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Tester</h3>
+                    <p class="text-sm text-gray-300">Fundación Carlos Slim – 28 horas</p>
+                </div>
+                <i class="fas fa-bug text-2xl text-primary"></i>
+            </div>
+
+            <!-- Curso 8 -->
+            <div
+                class="bg-[#1e1e1e] p-6 rounded-lg shadow-md hover:shadow-lg transition flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary">Curso Profesional de Docker</h3>
+                    <p class="text-sm text-gray-300">Códigofacilito – 3h 31m</p>
+                </div>
+                <i class="fab fa-docker text-2xl text-primary"></i>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="cv" class="py-16 px-4 bg-[#1e1e1e] text-white text-center">
+        <h2 class="text-3xl font-bold text-primary mb-6">Descargar Currículum</h2>
+        <p class="text-lg mb-6 max-w-xl mx-auto">Haz clic en el botón para ver o descargar mi hoja de vida en formato
+            PDF.</p>
+        <a href="./cv-erick-garcia.pdf" download
+            class="inline-block bg-primary text-black font-semibold py-3 px-6 rounded-full hover:bg-yellow-300 transition duration-300">
+            Descargar CV
+        </a>
+    </section>
+
+    <section id="contact" class="py-16 px-4 bg-dark text-white text-center">
+        <h2 class="text-3xl font-bold text-primary mb-6">Contacto</h2>
+        <p class="text-lg mb-4">¿Te gustaría trabajar conmigo o tienes alguna consulta?</p>
+
+        <div class="flex flex-col items-center space-y-4 text-gray-300">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-envelope text-primary text-xl"></i>
+                <span>fernandogarcia1818@outlook.es</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-phone text-primary text-xl"></i>
+                <span>098 608 1623</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                <span>Quito, Ecuador</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fab fa-linkedin text-primary text-xl"></i>
+                <a href="https://www.linkedin.com/in/erick-fernando-garc%C3%ADa-guerrero-494253237/" target="_blank"
+                    class="hover:underline">LinkedIn</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fab fa-github text-primary text-xl"></i>
+                <a href="https://github.com/Erick21Garcia" target="_blank" class="hover:underline">GitHub</a>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="container mt-5">
-        <h2 class="section-title">Proyectos</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./gif2.gif" class="card-img-top" alt="Proyecto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">E-commerce - Tienda de Tecnología</h5>
-                        <p class="card-text">Sistema de compras en línea desarrollado en PHP y MySQL.</p>
-                        <a href="https://github.com/Erick21Garcia/E-commerce-Tienda-de-Tecnologia" target="_blank"
-                            class="btn btn-primary btn-block">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./gif1.gif" class="card-img-top" alt="Proyecto 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Sistema de Gestión Académica</h5>
-                        <p class="card-text">Aplicación web en Laravel para administrar información académica.</p>
-                        <a href="https://github.com/Erick21Garcia/Sistema-de-Gestion-Academica" target="_blank"
-                            class="btn btn-primary btn-block">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./gif3.gif" class="card-img-top" alt="Proyecto 3">
-                    <div class="card-body">
-                        <h5 class="card-title">To-do App</h5>
-                        <p class="card-text">Aplicación de lista de tareas usando React y Flask.</p>
-                        <a href="https://github.com/Erick21Garcia/React-flask-todo-app" target="_blank"
-                            class="btn btn-primary btn-block">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <!-- Proyecto 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./gif4.gif" class="card-img-top" alt="Proyecto 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Sistema Web de Bienestar Universitario</h5>
-                        <p class="card-text">Sistema web de bienestar universitario para la gestión documental del área
-                            de medicina integrando servicios AWS.</p>
-                        <a href="https://github.com/Erick21Garcia/Sistema-Web-Bienestar-Universitario-" target="_blank"
-                            class="btn btn-primary btn-block">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="./img1.jpg" class="card-img-top" alt="Proyecto 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Python - IoT</h5>
-                        <p class="card-text">Este proyecto tiene como objetivo explorar el uso del protocolo MQTT en
-                            soluciones de Internet de las Cosas (IoT).
-                        </p>
-                        <a href="https://github.com/Erick21Garcia/PythonIoT" target="_blank"
-                            class="btn btn-primary btn-block">Ver Proyecto</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 text-center py-6 mt-5">
         <p>© 2024 Erick García | Sígueme en:</p>
-        <a href="https://github.com/Erick21Garcia" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/erick-fernando-garc%C3%ADa-guerrero-494253237/" target="_blank"><i
-                class="fab fa-linkedin"></i></a>
+        <div class="mt-2 space-x-4 text-2xl">
+            <a href="https://github.com/Erick21Garcia" target="_blank" class="text-white hover:text-primary"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/erick-fernando-garc%C3%ADa-guerrero-494253237/" target="_blank"
+                class="text-white hover:text-primary"><i class="fab fa-linkedin"></i></a>
+        </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(window).scroll(function () {
-            $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
-        });
-    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
