@@ -1,0 +1,44 @@
+body { font-family: "Poppins", sans-serif; }
+  :focus-visible { outline: 2px solid #ffcc00; outline-offset: 3px; }
+  .nav-link.active { color: #ffcc00; }
+  .cursor::after { content: "|"; margin-left: 2px; color: #ffcc00; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .card { transition: transform .25s, box-shadow .25s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(255, 204, 0, .12); }
+  /* Animación SmartBancs (simula un gif) */
+  .flow { stroke-dasharray: 6 6; animation: dash 0.8s linear infinite; }
+  .flow.back { animation-direction: reverse; }
+  @keyframes dash { to { stroke-dashoffset: -12; } }
+  .ring { transform-box: fill-box; transform-origin: center; animation: ring 2s ease-out infinite; }
+  @keyframes ring { from { transform: scale(1); opacity: .7; } to { transform: scale(1.6); opacity: 0; } }
+  .msg { animation: msg 3s infinite; opacity: 0; }
+  .msg.b { animation-delay: 1.5s; }
+  @keyframes msg { 0%, 8% { opacity: 0; } 15%, 45% { opacity: 1; } 55%, 100% { opacity: 0; } }
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:#ffcc00;z-index:60}
+/* Hero: editores de código que se escriben solos */
+.hero{height:100vh;height:100svh;min-height:560px;background:radial-gradient(60% 50% at 50% 45%,#2a2400 0,#121212 70%)}
+.hero-fade{background:radial-gradient(ellipse 38% 45% at center,rgba(18,18,18,.88) 0,rgba(18,18,18,.5) 60%,transparent 100%)}
+.code{position:absolute;top:14%;max-width:48%;overflow:hidden;font:clamp(13px,1.05vw,16px)/1.65 ui-monospace,Menlo,Consolas,monospace;color:#b4b4b4;opacity:.85;white-space:pre;pointer-events:none}
+@media(max-width:767px){.code{opacity:.4}}
+.code.l{left:4%}.code.r{right:4%;top:auto;bottom:14%}
+.code i{font-style:normal}.code .c{color:#6a9955}.code .s{color:#ce9178}.code .k{color:#ffcc00}.code .v{color:#9cdcfe}.code .n{color:#b5cea8}
+.caret{display:inline-block;width:7px;height:1em;background:#ffcc00;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+/* Escenas animadas de proyectos */
+.scene{background:radial-gradient(circle at 50% 40%,#2a2410,#0c0c0c 75%)}
+.scene text{font:600 11px Poppins,sans-serif;text-anchor:middle;fill:#fff}
+.scene text.y{fill:#ffcc00}.scene text.l{text-anchor:start}
+.scene.paused *{animation-play-state:paused}
+.grow,.fill,.pop,.rise{transform-box:fill-box}
+.drop{opacity:0;animation:drop 3s infinite}
+@keyframes drop{0%{transform:translateY(-90px);opacity:0}20%{opacity:1}45%,80%{transform:none;opacity:1}100%{transform:none;opacity:0}}
+.grow{transform-origin:bottom;animation:grow 3.4s ease-in-out infinite}
+@keyframes grow{0%{transform:scaleY(0)}35%,80%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+.fill{transform-origin:left;animation:fillbar 3.6s ease-in-out infinite}
+@keyframes fillbar{0%{transform:scaleX(0)}50%,85%{transform:scaleX(var(--w))}100%{transform:scaleX(0)}}
+.rise{animation:rise 3s ease-in infinite}
+@keyframes rise{0%{transform:none;opacity:1}65%{transform:translateY(-48px);opacity:1}85%,100%{transform:translateY(-52px);opacity:0}}
+.pop{transform-origin:center;animation:pop 3s infinite}
+@keyframes pop{0%,100%{transform:scale(1);stroke:#555}6%,18%{transform:scale(1.12);stroke:#ffcc00}28%{transform:scale(1);stroke:#555}}
+.tick{stroke-dasharray:24;animation:tick 4s infinite}
+@keyframes tick{0%,10%{stroke-dashoffset:24}25%,80%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:24}}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .msg, .drop { opacity: 1; } .fill { transform: scaleX(var(--w)); } }
